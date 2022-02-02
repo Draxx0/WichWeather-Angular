@@ -16,12 +16,12 @@
   height: 100vh;
   margin: 0;
   padding: 0;
-  background-image: url("../../../assets/img/bg/Clouds.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   margin: auto;
   position: relative;
+  transition: .5s;
 
   .logo {
     position: absolute;
@@ -34,7 +34,8 @@
     width: 30%;
     max-height: 370px;
     background-color: rgba(255, 255, 255, 20%);
-    border-radius: 30px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
     position: absolute;
     right: 20px;
     top: 20px;
@@ -50,6 +51,7 @@
       padding: 0;
       text-align: center;
       margin-top: 45px;
+      margin-bottom: 45px;
 
       .city {
         font-size: $city-font-size;
@@ -142,14 +144,16 @@
     margin: 0;
   }
 
-  img[alt="sunrise"]{
+  .sunrise{
     height: 80px;
     width: 80px;
+    fill: white;
   }
 
-  img[alt="sunset"]{
+   .sunset{
     height: 72px;
     width: 80px;
+    fill: white;
   }
 
   img[alt="high"]{
@@ -183,21 +187,17 @@
   .current_city {
     color: $font-color;
     position: absolute;
-    top: 30%;
+    top: 15%;
     left: 45%;
     text-align: center;
     font-size: $current-city-size;
     font-family: $global-fonts;
 
-    .sun {
-      animation: sun 2s infinite;
-      width: 100px;
+    .weather_icon {
+      animation: clouds 5s infinite linear;
+      width: 200px;
       margin-bottom: 20px;
-    }
-    .clouds {
-      animation: clouds 2s infinite;
-      width: 100px;
-      margin-bottom: 20px;
+      filter: invert(100%);
     }
   }
 
@@ -297,39 +297,23 @@
   }
 }
 
-@keyframes sun {
-  0%{
-    transform: rotate(0deg) scale(100%);
-  }
-  50%{
-    transform: rotate(360deg) scale(120%);
-  }
-  100%{
-    transform: rotate(0deg) scale(100%);
-  }
-}
-
 @keyframes clouds {
   0%{
     transform: translateX(0px) scale(100%);
-    opacity: 1;
   }
 
   25%{
     transform: translateX(-50px) scale(110%);
-    opacity: 0.75;
   }
   50%{
     transform: translateX(0px) scale(120%);
-    opacity: 0.50;
+
   }
   75%{
     transform: translateX(50px) scale(110%);
-    opacity: 0.75;
   }
   100%{
     transform: translateX(0px) scale(100%);
-    opacity: 1;
   }
 }
 
