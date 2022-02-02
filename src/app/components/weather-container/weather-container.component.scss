@@ -292,17 +292,39 @@
   }
 }
 
-@keyframes grow {
-  0% {
-    transform: scale(100%);
+@keyframes sun {
+  0%{
+    transform: rotate(0deg) scale(100%);
+  }
+  50%{
+    transform: rotate(360deg) scale(120%);
+  }
+  100%{
+    transform: rotate(0deg) scale(100%);
+  }
+}
+
+@keyframes clouds {
+  0%{
+    transform: translateX(0px) scale(100%);
+    opacity: 1;
   }
 
-  50% {
-    transform: scale(150%);
+  25%{
+    transform: translateX(-50px) scale(110%);
+    opacity: 0.75;
   }
-
-  100% {
-    transform: scale(100%);
+  50%{
+    transform: translateX(0px) scale(120%);
+    opacity: 0.50;
+  }
+  75%{
+    transform: translateX(50px) scale(110%);
+    opacity: 0.75;
+  }
+  100%{
+    transform: translateX(0px) scale(100%);
+    opacity: 1;
   }
 }
 
