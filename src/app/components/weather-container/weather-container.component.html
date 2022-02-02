@@ -1,12 +1,12 @@
-<main class="weather-container">
+<main class="weather-container"> // add [Style] angular spec
   <img src="../../../assets/img/logo/Witch.png" alt="" class="logo" />
   <div class="city_selectionne_container">
     <ul class="city_list">
-      <li class="city" (click)="loadCity()">Paris</li>
-      <li class="city">Bordeaux</li>
-      <li class="city" (click)="loadLyon()" >Lyon</li>
-      <li class="city">Marseille</li>
-      <li class="city">Toulouse</li>
+      <li class="city" (click)="loadParisName()">Paris</li>
+      <li class="city" (click)="loadBordeauxName()">Bordeaux</li>
+      <li class="city" (click)="loadStrasbourgName()" >Strasbourg</li>
+      <li class="city" (click)="loadOrleansName()">Orleans</li>
+      <li class="city" (click)="loadToulouseName()">Toulouse</li>
     </ul>
   </div>
   <div class="current_city">
@@ -16,8 +16,8 @@
       class="weather_icon"
     />
     <h1 class="current_city_title">{{cityName}}</h1>
-    <h2 class="current_city_temp">9°</h2>
-    <h3 class="current_city_weather">Nuageux</h3>
+    <h2 class="current_city_weather">{{cityWeather}}</h2>
+    <h3 class="current_city_temp">{{cityTemp}}° C</h3>
   </div>
 
   <div class="footer_container">
