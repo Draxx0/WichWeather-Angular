@@ -41,9 +41,9 @@ export class WeatherContainerComponent implements OnInit {
         this.cityWeather = data.weatherName
         this.cityTemp = data.weatherTemp
 
-        if (data.weather.Name == "cloudy") {
-          document.body.style.backgroundImage = "https://via.placeholder.com"
-        } 
+        // if (data.weather.Name == "cloudy") {
+        //   document.body.style.backgroundImage = "https://via.placeholder.com"
+        // } 
       });
   }
 
