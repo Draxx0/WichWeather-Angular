@@ -90,4 +90,26 @@ loadOrleansName(): void {
       this.cityTemp = data.weatherTemp
     });
 }
+
+loadBrestName(): void {
+  this.httpClient
+    .get<any>('http://localhost:3000?cityName=brest')
+    .subscribe((data) => {
+      console.log(data);
+      this.cityName = data.cityName
+      this.cityWeather = data.weatherName
+      this.cityTemp = data.weatherTemp
+    });
+}
+
+loadMontpellierName(): void {
+  this.httpClient
+    .get<any>('http://localhost:3000?cityName=montpellier')
+    .subscribe((data) => {
+      console.log(data);
+      this.cityName = data.cityName
+      this.cityWeather = data.weatherName
+      this.cityTemp = data.weatherTemp
+    });
+}
 }
