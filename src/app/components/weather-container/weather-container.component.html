@@ -7,7 +7,7 @@
       <li class="city" (click)="loadParisName()">Paris</li>
       <li class="city" (click)="loadBordeauxName()">Bordeaux</li>
       <li class="city" (click)="loadStrasbourgName()" >Strasbourg</li>
-      <li class="city" (click)="loadOrleansName()">Orleans</li>
+      <li class="city" (click)="loadLilleName()">Lille</li>
       <li class="city" (click)="loadToulouseName()">Toulouse</li>
       <li class="city" (click)="loadBrestName()">Brest</li>
       <li class="city" (click)="loadMontpellierName()">Montpellier</li>
@@ -42,7 +42,7 @@
 	c0.29,0,0.53,0.1,0.73,0.3c0.2,0.2,0.3,0.44,0.3,0.73c0,0.29-0.1,0.53-0.3,0.72c-0.2,0.19-0.44,0.29-0.73,0.29H4.01
 	c-0.25,0-0.46,0.09-0.64,0.26C3.19,13.23,3.1,13.44,3.1,13.69z"/>
 </svg>
-          <p id="wind-stat">4,2m/s</p>
+          <p id="wind-stat">{{weatherWindSpeed}}m/s</p>
         </div>
       </div>
       <div class="second_card">
@@ -62,7 +62,7 @@
 	c-0.05,0.06-0.08,0.12-0.08,0.21v7.34c-0.61,0.09-1.13,0.37-1.56,0.85C12.66,18.37,12.45,18.92,12.45,19.56z"/>
 </svg>
 
-          <p id="feel-stat">9°C</p>
+          <p id="feel-stat">{{weatherFeelsLike}}°C</p>
         </div>
       </div>
     </div>
@@ -82,7 +82,7 @@
 	c0.19,0.22,0.36,0.46,0.51,0.74c0.15,0.27,0.23,0.5,0.23,0.68c0,0.28-0.1,0.5-0.29,0.69c-0.19,0.18-0.42,0.28-0.7,0.28
 	c-0.29,0-0.53-0.09-0.72-0.28C15.75,9.98,15.65,9.75,15.65,9.48z"/>
 </svg>
-          <p id="humidity-stat">45%</p>
+          <p id="humidity-stat">{{weatherHumidity}}%</p>
         </div>
       </div>
       <div class="second_card">
@@ -101,7 +101,7 @@
 	c0.18,0.25,0.26,0.54,0.26,0.88c0,0.44-0.15,0.81-0.46,1.11c-0.31,0.3-0.68,0.45-1.12,0.45c-0.43,0-0.8-0.15-1.1-0.45
 	C13.65,15.76,13.5,15.39,13.5,14.95z M14.81,10.28V8.12h0.69v2.17H14.81z M17.75,13.55v-0.74h2.17v0.74H17.75z"/>
 </svg>
-          <p id="pressure-stat">1025hPa</p>
+          <p id="pressure-stat">{{weatherPressure}}hPa</p>
         </div>
       </div>
     </div>
@@ -109,12 +109,12 @@
       <h2 class="stats">Sunrise</h2>
         <div class="box">
           <img src="../../../assets/img/weather-icons/bi_sunrise.png" alt="sunrise">
-          <p id="sunrise-stat">07:45</p>
+          <p id="sunrise-stat">{{weatherSunrise | date:'shortTime'}}</p>
         </div>
       <h2 class="stats">Sunset</h2>
         <div class="box">
           <img src="../../../assets/img/weather-icons/bi_sunset.png" alt="sunset">
-          <p id="sunset-stat">19:00</p>
+          <p id="sunset-stat">{{weatherSunset | date:'shortTime'}}</p>
         </div>
     </div>
     <div class="fourth_container">
@@ -122,14 +122,14 @@
         <h1 class="stats">Max temperature</h1>
         <div class="box">
           <img src="../../../assets/img/weather-icons/fa-solid_temperature-high.png" alt="high">
-          <p id="max-temp-stat">18°C</p>
+          <p id="max-temp-stat">{{weatherTempMax}}°C</p>
         </div>
       </div>
       <div class="second_card">
         <h1 class="stats">Min temperature</h1>
         <div class="box">
           <img src="../../../assets/img/weather-icons/fa-solid_temperature-low.png" alt="low">
-          <p id="min-temp-stat">5°C</p>
+          <p id="min-temp-stat">{{weatherTempMin}}°C</p>
         </div>
       </div>
     </div>
