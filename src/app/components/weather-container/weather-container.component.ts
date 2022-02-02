@@ -10,7 +10,7 @@ export class WeatherContainerComponent implements OnInit {
   cityName: string = '';
   cityWeather: string = '';
   cityTemp: string = '';
-  backgroundImgUrl : string = '../../../assets/img/bg/Mountain_View_and_Beautiful_Landscape_generated.jpg'
+  backgroundImgUrl : string = '../../../assets/img/bg/Clouds.jpg'
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
@@ -26,6 +26,8 @@ export class WeatherContainerComponent implements OnInit {
           this.cityTemp = data.weatherTemp
         });
     });
+
+    
   };
 
 
