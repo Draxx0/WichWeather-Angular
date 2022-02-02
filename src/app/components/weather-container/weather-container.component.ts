@@ -18,7 +18,7 @@ export class WeatherContainerComponent implements OnInit {
       let lat = position.coords.latitude;
       let long = position.coords.longitude;
       this.httpClient
-        .get<any>(`http://localhost:3000/test?lat=${lat}&lon=${long}`)
+        .get<any>(`http://localhost:3000/test?lat=${lat}&lon=${long}&units=metric&appid=d916bb262d7dc0b62e3bd99b9bc40bd0`)
         .subscribe((data) => { 
           console.log(data);
           this.cityName = data.cityName
