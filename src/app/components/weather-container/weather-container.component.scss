@@ -189,8 +189,13 @@
     font-size: $current-city-size;
     font-family: $global-fonts;
 
-    .weather_icon {
-      animation: grow 2s infinite;
+    .sun {
+      animation: sun 2s infinite;
+      width: 100px;
+      margin-bottom: 20px;
+    }
+    .clouds {
+      animation: clouds 2s infinite;
       width: 100px;
       margin-bottom: 20px;
     }

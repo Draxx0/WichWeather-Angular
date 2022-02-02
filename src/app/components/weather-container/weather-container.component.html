@@ -18,6 +18,7 @@
       src="../../../assets/img/weather-icons/akar-icons_sun-fill.png"
       alt=""
       class="weather_icon"
+      [ngClass]="{'sun' : isSun, 'clouds' : isCloud}"
     />
     <h1 class="current_city_title">{{cityName}}</h1>
     <h2 class="current_city_weather">{{cityWeather}}</h2>
