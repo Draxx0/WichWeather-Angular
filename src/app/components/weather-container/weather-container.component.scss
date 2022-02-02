@@ -190,7 +190,7 @@
     font-family: $global-fonts;
 
     .weather_icon {
-      animation: grow 2s infinite;
+      animation: clouds 5s infinite linear;
       width: 100px;
       margin-bottom: 20px;
     }
