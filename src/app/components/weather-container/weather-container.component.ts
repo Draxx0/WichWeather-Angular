@@ -10,7 +10,7 @@ export class WeatherContainerComponent implements OnInit {
   cityName: string = '';
   cityWeather: string = '';
   cityTemp: string = '';
-  backgroundImgUrl : string = '../../../assets/img/bg/Mountain_View_and_Beautiful_Landscape_generated.jpg'
+  backgroundImgUrl : string = '../../../assets/img/bg/Clouds.jpg'
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
@@ -26,6 +26,8 @@ export class WeatherContainerComponent implements OnInit {
           this.cityTemp = data.weatherTemp
         });
     });
+
+    
   };
 
 
@@ -83,6 +85,28 @@ loadToulouseName(): void {
 loadOrleansName(): void {
   this.httpClient
     .get<any>('http://localhost:3000?cityName=orleans')
+    .subscribe((data) => {
+      console.log(data);
+      this.cityName = data.cityName
+      this.cityWeather = data.weatherName
+      this.cityTemp = data.weatherTemp
+    });
+}
+
+loadBrestName(): void {
+  this.httpClient
+    .get<any>('http://localhost:3000?cityName=brest')
+    .subscribe((data) => {
+      console.log(data);
+      this.cityName = data.cityName
+      this.cityWeather = data.weatherName
+      this.cityTemp = data.weatherTemp
+    });
+}
+
+loadMontpellierName(): void {
+  this.httpClient
+    .get<any>('http://localhost:3000?cityName=montpellier')
     .subscribe((data) => {
       console.log(data);
       this.cityName = data.cityName
