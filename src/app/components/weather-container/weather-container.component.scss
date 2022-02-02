@@ -16,7 +16,7 @@
   height: 100vh;
   margin: 0;
   padding: 0;
-  background-image: url("../../../assets/img/bg/Mountain_View_and_Beautiful_Landscape_generated.jpg");
+  background-image: url("../../../assets/img/bg/Clouds.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -32,12 +32,14 @@
 
   .city_selectionne_container {
     width: 30%;
-    height: 370px;
+    max-height: 370px;
     background-color: rgba(255, 255, 255, 20%);
     border-radius: 30px;
     position: absolute;
     right: 20px;
     top: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
     .city_list {
       display: flex;
