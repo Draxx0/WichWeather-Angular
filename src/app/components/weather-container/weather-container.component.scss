@@ -53,7 +53,7 @@
 
       .city {
         font-size: $city-font-size;
-        color: white;
+        color: $font-color;
         font-weight: bold;
         font-family: $global-fonts;
         // font-family: Sansation;
@@ -71,13 +71,123 @@
     }
   }
 
+  .stats{
+    color: $font-color;
+    font-family: $global-fonts;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-weight: normal;
+  }
+
+  .svg{
+    fill: white;
+    height: 64px;
+    width: 64px;
+  }
+  
+  .svg-water{
+    position: relative;
+    fill: white;
+    height: 100px;
+    width: 100px;
+    bottom: 15px;
+  }
+
+  #wind-stat{
+    color: $font-color;
+    font-size: 20px;
+    font-family: $global-fonts;
+    padding-right: 40px;
+  }
+  
+  #feel-stat{
+    color: $font-color;
+    font-size: 20px;
+    font-family: $global-fonts;
+    padding-right: 90px;
+  }
+  
+  #humidity-stat{
+    color: $font-color;
+    font-size: 20px;
+    font-family: $global-fonts;
+    padding-right: 120px;
+  }
+  
+  #pressure-stat{
+    color: $font-color;
+    font-size: 20px;
+    font-family: $global-fonts;
+    padding-right: 40px;
+  }
+
+  #max-temp-stat{
+    position: relative;
+    top: 10px;
+    color: $font-color;
+    font-size: 30px;
+    font-family: $global-fonts;
+    padding-right: 40px;
+    margin: 0;
+  }
+  
+  #min-temp-stat{
+    position: relative;
+    top: 10px;
+    color: $font-color;
+    font-size: 30px;
+    font-family: $global-fonts;
+    padding-right: 40px;
+    margin: 0;
+  }
+
+  img[alt="sunrise"]{
+    height: 80px;
+    width: 80px;
+  }
+
+  img[alt="sunset"]{
+    height: 72px;
+    width: 80px;
+  }
+
+  img[alt="high"]{
+    position: relative;
+    top: 10px;
+    height: 31px;
+    width: 32px;
+  }
+  
+  img[alt="low"]{
+    position: relative;
+    top: 10px;
+    height: 31px;
+    width: 32px;
+  }
+
+  #sunrise-stat{
+    color: $font-color;
+    font-size: 25px;
+    font-family: $global-fonts;
+    padding-right: 180px;
+  }
+
+  #sunset-stat{
+    color: $font-color;
+    font-size: 25px;
+    font-family: $global-fonts;
+    padding-right: 180px;
+  }
+
   .current_city {
-    color: white;
+    color: $font-color;
     position: absolute;
     top: 30%;
     left: 45%;
     text-align: center;
     font-size: $current-city-size;
+    font-family: $global-fonts;
 
     .weather_icon {
       animation: clouds 5s infinite linear;
@@ -94,11 +204,11 @@
     bottom: 10px;
     border-radius: 30px;
     left: 2%;
+    align-content: center;
 
     .first_container {
       width: 20%;
       height: 80%;
-      // background-color: red;
       margin-top: 35px;
       margin-left: 25px;
       display: flex;
@@ -106,14 +216,14 @@
       gap: 20px;
 
       .first_card {
-        background-color: rgba(255, 255, 255, 20%);
+        background-color: $card-color;
         width: 100%;
         height: 50%;
         border-radius: 30px;
       }
 
       .second_card {
-        background-color: rgba(255, 255, 255, 20%);
+        background-color: $card-color;
         width: 100%;
         height: 50%;
         border-radius: 30px;
@@ -130,14 +240,14 @@
       gap: 20px;
 
       .first_card {
-        background-color: rgba(255, 255, 255, 20%);
+        background-color: $card-color;
         width: 100%;
         height: 50%;
         border-radius: 30px;
       }
 
       .second_card {
-        background-color: rgba(255, 255, 255, 20%);
+        background-color: $card-color;
         width: 100%;
         height: 50%;
         border-radius: 30px;
@@ -147,13 +257,37 @@
     .third_container {
       display: flex;
       flex-direction: column;
-      width: 80%;
-      height: 80%;
+      width: 60%;
+      height: 85%;
+      margin-top: 35px;
+      margin-left: 105px;
+      background-color: $card-color;
+      border-radius: 30px;
+    }
+
+    .fourth_container {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      height: 85%;
       margin-top: 35px;
       margin-left: 105px;
       gap: 20px;
-      background-color: rgba(255, 255, 255, 20%);
       border-radius: 30px;
+
+      .first_card {
+        background-color: $card-color;
+        width: 100%;
+        height: 50%;
+        border-radius: 30px;
+      }
+
+      .second_card {
+        background-color: $card-color;
+        width: 100%;
+        height: 50%;
+        border-radius: 30px;
+      }
     }
   }
 }
@@ -197,5 +331,5 @@
 
 .box{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
