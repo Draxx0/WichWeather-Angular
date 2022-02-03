@@ -1,10 +1,13 @@
+//===================IMPORT=================
 @import "../../../variable.scss";
 
+//===================FONT=================
 @font-face {
   font-family: Sansation;
   src: url("../../../assets/fonts/Sansation_Regular.ttf");
 }
 
+//===================SCSS=================
 :host {
   display: flex;
   justify-content: center;
@@ -21,13 +24,15 @@
   display: flex;
   margin: auto;
   position: relative;
-  transition: .5s;
+  transition: 0.5s;
+  
 
   .logo {
     position: absolute;
     left: 10px;
     top: -50px;
     width: 300px;
+    animation: 1s drop;
   }
 
   .city_selectionne_container {
@@ -41,6 +46,8 @@
     top: 20px;
     overflow-y: scroll;
     overflow-x: hidden;
+    animation: appear 1.5s;
+    
 
     .city_list {
       display: flex;
@@ -53,12 +60,19 @@
       margin-top: 45px;
       margin-bottom: 45px;
 
+      :nth-child(2n+0){
+        animation: fromLeftSide 1s;
+      }
+
+      :nth-child(2n+1){
+        animation: fromRightSide 1s;
+      }
+
       .city {
         font-size: $city-font-size;
         color: $font-color;
         font-weight: bold;
         font-family: $global-fonts;
-        // font-family: Sansation;
         cursor: pointer;
 
         &:hover {
@@ -73,117 +87,6 @@
     }
   }
 
-  .stats{
-    color: $font-color;
-    font-family: $global-fonts;
-    padding-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 0;
-    font-weight: normal;
-  }
-
-  .svg{
-    fill: white;
-    height: 64px;
-    width: 64px;
-  }
-  
-  .svg-water{
-    position: relative;
-    fill: white;
-    height: 100px;
-    width: 100px;
-    bottom: 15px;
-  }
-
-  #wind-stat{
-    color: $font-color;
-    font-size: 20px;
-    font-family: $global-fonts;
-    padding-right: 40px;
-  }
-  
-  #feel-stat{
-    color: $font-color;
-    font-size: 20px;
-    font-family: $global-fonts;
-    padding-right: 90px;
-  }
-  
-  #humidity-stat{
-    color: $font-color;
-    font-size: 20px;
-    font-family: $global-fonts;
-    padding-right: 120px;
-  }
-  
-  #pressure-stat{
-    color: $font-color;
-    font-size: 20px;
-    font-family: $global-fonts;
-    padding-right: 40px;
-  }
-
-  #max-temp-stat{
-    position: relative;
-    top: 10px;
-    color: $font-color;
-    font-size: 30px;
-    font-family: $global-fonts;
-    padding-right: 40px;
-    margin: 0;
-  }
-  
-  #min-temp-stat{
-    position: relative;
-    top: 10px;
-    color: $font-color;
-    font-size: 30px;
-    font-family: $global-fonts;
-    padding-right: 40px;
-    margin: 0;
-  }
-
-  .sunrise{
-    height: 80px;
-    width: 80px;
-    fill: #FFD233;
-  }
-
-   .sunset{
-    height: 80px;
-    width: 80px;
-    fill: #FF9A62;
-  }
-
-  img[alt="high"]{
-    position: relative;
-    top: 10px;
-    height: 31px;
-    width: 32px;
-  }
-  
-  img[alt="low"]{
-    position: relative;
-    top: 10px;
-    height: 31px;
-    width: 32px;
-  }
-
-  #sunrise-stat{
-    color: $font-color;
-    font-size: 25px;
-    font-family: $global-fonts;
-    padding-right: 180px;
-  }
-
-  #sunset-stat{
-    color: $font-color;
-    font-size: 25px;
-    font-family: $global-fonts;
-    padding-right: 180px;
-  }
-
   .current_city {
     color: $font-color;
     position: absolute;
@@ -192,6 +95,7 @@
     text-align: center;
     font-size: $current-city-size;
     font-family: $global-fonts;
+    animation: 1s drop;
 
     .weather_icon {
       animation: clouds 5s infinite linear;
@@ -210,6 +114,7 @@
     border-radius: 30px;
     left: 2%;
     align-content: center;
+    animation: up 1s;
 
     .first_container {
       width: 20%;
@@ -225,6 +130,15 @@
         width: 100%;
         height: 50%;
         border-radius: 30px;
+
+        .stats {
+          color: $font-color;
+          font-family: $global-fonts;
+          padding-left: 20px;
+          margin-top: 10px;
+          margin-bottom: 0;
+          font-weight: normal;
+        }
       }
 
       .second_card {
@@ -232,6 +146,15 @@
         width: 100%;
         height: 50%;
         border-radius: 30px;
+
+        .stats {
+          color: $font-color;
+          font-family: $global-fonts;
+          padding-left: 20px;
+          margin-top: 10px;
+          margin-bottom: 0;
+          font-weight: normal;
+        }
       }
     }
 
@@ -249,6 +172,15 @@
         width: 100%;
         height: 50%;
         border-radius: 30px;
+
+        .stats {
+          color: $font-color;
+          font-family: $global-fonts;
+          padding-left: 20px;
+          margin-top: 10px;
+          margin-bottom: 0;
+          font-weight: normal;
+        }
       }
 
       .second_card {
@@ -256,6 +188,15 @@
         width: 100%;
         height: 50%;
         border-radius: 30px;
+
+        .stats {
+          color: $font-color;
+          font-family: $global-fonts;
+          padding-left: 20px;
+          margin-top: 10px;
+          margin-bottom: 0;
+          font-weight: normal;
+        }
       }
     }
 
@@ -268,6 +209,14 @@
       margin-left: 105px;
       background-color: $card-color;
       border-radius: 30px;
+      .stats {
+        color: $font-color;
+        font-family: $global-fonts;
+        padding-left: 20px;
+        margin-top: 10px;
+        margin-bottom: 0;
+        font-weight: normal;
+      }
     }
 
     .fourth_container {
@@ -285,6 +234,14 @@
         width: 100%;
         height: 50%;
         border-radius: 30px;
+        .stats {
+          color: $font-color;
+          font-family: $global-fonts;
+          padding-left: 20px;
+          margin-top: 10px;
+          margin-bottom: 0;
+          font-weight: normal;
+        }
       }
 
       .second_card {
@@ -292,33 +249,193 @@
         width: 100%;
         height: 50%;
         border-radius: 30px;
+        .stats {
+          color: $font-color;
+          font-family: $global-fonts;
+          padding-left: 20px;
+          margin-top: 10px;
+          margin-bottom: 0;
+          font-weight: normal;
+        }
       }
+    }
+  }
+
+  .svg {
+    fill: white;
+    height: 64px;
+    width: 64px;
+  }
+
+  .svg-water {
+    position: relative;
+    fill: white;
+    height: 100px;
+    width: 100px;
+    bottom: 15px;
+  }
+
+  #wind-stat {
+    color: $font-color;
+    font-size: 20px;
+    font-family: $global-fonts;
+    padding-right: 40px;
+  }
+
+  #feel-stat {
+    color: $font-color;
+    font-size: 20px;
+    font-family: $global-fonts;
+    padding-right: 90px;
+  }
+
+  #humidity-stat {
+    color: $font-color;
+    font-size: 20px;
+    font-family: $global-fonts;
+    padding-right: 120px;
+  }
+
+  #pressure-stat {
+    color: $font-color;
+    font-size: 20px;
+    font-family: $global-fonts;
+    padding-right: 40px;
+  }
+
+  #max-temp-stat {
+    position: relative;
+    top: 10px;
+    color: $font-color;
+    font-size: 30px;
+    font-family: $global-fonts;
+    padding-right: 40px;
+    margin: 0;
+  }
+
+  #min-temp-stat {
+    position: relative;
+    top: 10px;
+    color: $font-color;
+    font-size: 30px;
+    font-family: $global-fonts;
+    padding-right: 40px;
+    margin: 0;
+  }
+
+  img[alt="high"] {
+    position: relative;
+    top: 10px;
+    height: 31px;
+    width: 32px;
+  }
+
+  img[alt="low"] {
+    position: relative;
+    top: 10px;
+    height: 31px;
+    width: 32px;
+  }
+
+  #sunrise-stat {
+    color: $font-color;
+    font-size: 25px;
+    font-family: $global-fonts;
+    padding-right: 180px;
+  }
+
+  #sunset-stat {
+    color: $font-color;
+    font-size: 25px;
+    font-family: $global-fonts;
+    padding-right: 180px;
+  }
+
+  .box {
+    display: flex;
+    justify-content: space-evenly;
+  
+    .sunrise {
+      height: 80px;
+      width: 80px;
+      fill: white;
+    }
+  
+    .sunset {
+      height: 72px;
+      width: 80px;
+      fill: white;
     }
   }
 }
 
+//===================ANIM=================
+
 @keyframes clouds {
-  0%{
+  0% {
     transform: translateX(0px) scale(100%);
   }
 
-  25%{
+  25% {
     transform: translateX(-50px) scale(110%);
   }
-  50%{
+  50% {
     transform: translateX(0px) scale(120%);
-
   }
-  75%{
+  75% {
     transform: translateX(50px) scale(110%);
   }
-  100%{
+  100% {
     transform: translateX(0px) scale(100%);
   }
 }
 
+@keyframes drop {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
 
-.box{
-  display: flex;
-  justify-content: space-evenly;
+@keyframes fromLeftSide {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes fromRightSide {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes up {
+  from {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }

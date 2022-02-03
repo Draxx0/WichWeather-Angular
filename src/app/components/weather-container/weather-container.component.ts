@@ -15,20 +15,22 @@ export class WeatherContainerComponent implements OnInit {
   cityWeather: string = '';
   cityTemp: string = '';
 
-  url_icon = '../../../assets/img/weather-icons/bi_sunrise.png'
+  url_icon = ''
   url_img = '../../../assets/img/bg/Clouds.jpg'
 
   CloudsImg: string = "../../../assets/img/bg/Clouds.jpg"
   SnowImg: string = "../../../assets/img/bg/Snow.png"
-  RainImg: string = "../../../assets/img/bg/Rain.png"
-  ClearImg: string = "../../../assets/img/bg/Mountain_View_and_Beautiful_Landscape_generated.jpg"
-  MistImg: string = "../../../assets/img/bg/Fog.png"
-  DrizzleImg: string = "../../../assets/img/bg/Fog.png"
+  RainImg: string = "../../../assets/img/bg/rain.jpg"
+  ClearImg: string = "../../../assets/img/bg/Clear.jpg"
+  FogImg: string = "../../../assets/img/bg/fog.jpg"
+  MistImg: string = "../../../assets/img/bg/mist.jpg"
+  DrizzleImg: string = "../../../assets/img/bg/Drizzle.jpg"
 
   CloudsIcon: string = "../../../assets/img/weather-icons/wi-cloud.svg"
   SnowIcon: string = "../../../assets/img/weather-icons/wi-day-snow.svg"
   RainIcon: string = "../../../assets/img/weather-icons/wi-rain.svg"
   ClearIcon: string = "../../../assets/img/weather-icons/wi-day-sunny.svg"
+  FogIcon: string = "../../../assets/img/weather-icons/wi-fog.svg"
   MistIcon: string = "../../../assets/img/weather-icons/wi-fog.svg"
   DrizzleIcon: string = "../../../assets/img/weather-icons/wi-smoke.svg"
 
@@ -75,8 +77,8 @@ export class WeatherContainerComponent implements OnInit {
       this.url_icon = this.RainIcon
       break;
 
-      case 'Mist': this.url_img = this.MistImg
-      this.url_icon = this.MistIcon
+      case 'Fog': this.url_img = this.FogImg
+      this.url_icon = this.FogIcon
       break;
 
       case 'Drizzle': this.url_img = this.DrizzleImg
@@ -85,6 +87,10 @@ export class WeatherContainerComponent implements OnInit {
 
       case 'Clouds': this.url_img = this.CloudsImg
       this.url_icon = this.CloudsIcon
+      break;
+
+      case 'Mist': this.url_img = this.MistImg
+      this.url_icon = this.MistIcon
       break;
 
       default: this.url_img = this.ClearImg
@@ -107,7 +113,7 @@ export class WeatherContainerComponent implements OnInit {
       .get<Weather>('http://localhost:3000?cityName=bordeaux')
       .subscribe((data) => {
         this.currentWeather = data
-        this.getUrl(data.weatherName)        
+        this.getUrl(data.weatherName)
       });
   }
 
@@ -152,6 +158,56 @@ export class WeatherContainerComponent implements OnInit {
   loadMontpellierName(): void {
     this.httpClient
       .get<Weather>('http://localhost:3000?cityName=montpellier')
+      .subscribe((data) => {
+        this.currentWeather = data
+        this.getUrl(data.weatherName)
+        console.log(this.url_img);
+      });
+  }
+
+  loadDijonName(): void {
+    this.httpClient
+      .get<Weather>('http://localhost:3000?cityName=dijon')
+      .subscribe((data) => {
+        this.currentWeather = data
+        this.getUrl(data.weatherName)
+        console.log(this.url_img);
+      });
+  }
+
+  loadAnnecyName(): void {
+    this.httpClient
+      .get<Weather>('http://localhost:3000?cityName=annecy')
+      .subscribe((data) => {
+        this.currentWeather = data
+        this.getUrl(data.weatherName)
+        console.log(this.url_img);
+      });
+  }
+
+  loadAngersName(): void {
+    this.httpClient
+      .get<Weather>('http://localhost:3000?cityName=angers')
+      .subscribe((data) => {
+        this.currentWeather = data
+        this.getUrl(data.weatherName)
+        console.log(this.url_img);
+      });
+  }
+
+  loadQuimperName(): void {
+    this.httpClient
+      .get<Weather>('http://localhost:3000?cityName=quimper')
+      .subscribe((data) => {
+        this.currentWeather = data
+        this.getUrl(data.weatherName)
+        console.log(this.url_img);
+      });
+  }
+
+  loadChateaurouxName(): void {
+    this.httpClient
+      .get<Weather>('http://localhost:3000?cityName=chateauroux')
       .subscribe((data) => {
         this.currentWeather = data
         this.getUrl(data.weatherName)
