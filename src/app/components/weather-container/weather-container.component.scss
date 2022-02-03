@@ -139,9 +139,11 @@
         display: flex;
         justify-content: center;
         gap: 30px;
+        animation: drop 2s;
 
         .material-icons{
           color: white;
+          animation: appear 2s;
   
           &:hover{
             transform: scale(120%);
@@ -154,14 +156,6 @@
           }
         }
 
-      }
-
-      :nth-child(2n+0){
-        animation: fromLeftSide 1s;
-      }
-
-      :nth-child(2n+1){
-        animation: fromRightSide 1s;
       }
 
       .city {
