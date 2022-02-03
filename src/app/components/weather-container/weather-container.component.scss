@@ -98,7 +98,14 @@
     animation: 1s drop;
 
     .weather_icon {
-      animation: clouds 5s infinite linear;
+      animation: clouds 10s infinite linear;
+      width: 200px;
+      margin-bottom: 20px;
+      filter: invert(100%);
+    }
+
+    .sun{
+      animation: sun 10s infinite linear;
       width: 200px;
       margin-bottom: 20px;
       filter: invert(100%);
@@ -387,6 +394,16 @@
   }
   100% {
     transform: translateX(0px) scale(100%);
+  }
+
+}
+
+@keyframes sun {
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
   }
 }
 

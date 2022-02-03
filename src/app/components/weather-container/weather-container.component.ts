@@ -10,6 +10,8 @@ import { Weather } from 'src/app/weather';
   styleUrls: ['./weather-container.component.scss'],
 })
 export class WeatherContainerComponent implements OnInit {
+  
+  isSun: boolean = false;
 
   cityName: string = '';
   cityWeather: string = '';
@@ -32,7 +34,7 @@ export class WeatherContainerComponent implements OnInit {
   ClearIcon: string = "../../../assets/img/weather-icons/wi-day-sunny.svg"
   FogIcon: string = "../../../assets/img/weather-icons/wi-fog.svg"
   MistIcon: string = "../../../assets/img/weather-icons/wi-fog.svg"
-  DrizzleIcon: string = "../../../assets/img/weather-icons/wi-smoke.svg"
+  DrizzleIcon: string = "../../../assets/img/weather-icons/wi-showers.svg"
 
   currentWeather?: Weather;
   constructor(private httpClient: HttpClient) {}
@@ -67,34 +69,42 @@ export class WeatherContainerComponent implements OnInit {
 
       case 'Clear': this.url_img = this.ClearImg
       this.url_icon = this.ClearIcon
+      this.isSun = true
       break;
     
       case 'Snow': this.url_img = this.SnowImg
       this.url_icon = this.SnowIcon
+      this.isSun = false
       break;
 
       case 'Rain': this.url_img = this.RainImg
       this.url_icon = this.RainIcon
+      this.isSun = false
       break;
 
       case 'Fog': this.url_img = this.FogImg
       this.url_icon = this.FogIcon
+      this.isSun = false
       break;
 
       case 'Drizzle': this.url_img = this.DrizzleImg
       this.url_icon = this.DrizzleIcon
+      this.isSun = false
       break;
 
       case 'Clouds': this.url_img = this.CloudsImg
       this.url_icon = this.CloudsIcon
+      this.isSun = false
       break;
 
       case 'Mist': this.url_img = this.MistImg
       this.url_icon = this.MistIcon
+      this.isSun = false
       break;
 
       default: this.url_img = this.ClearImg
       this.url_icon = this.ClearIcon
+      this.isSun = true
       break;
     }
   }
