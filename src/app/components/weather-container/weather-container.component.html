@@ -21,7 +21,7 @@
     </ul>
   </div>
   <div class="current_city">
-    <img [src]="url_icon" alt="" class="weather_icon" />
+    <img [src]="url_icon" [ngClass]="{'sun' : isSun}" alt="" class="weather_icon" />
     <h1 class="current_city_title">{{ currentWeather?.cityName }}</h1>
     <h2 class="current_city_weather">{{ currentWeather?.weatherName }}</h2>
     <h3 class="current_city_temp">
