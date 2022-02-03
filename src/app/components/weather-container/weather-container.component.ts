@@ -10,6 +10,7 @@ import { Weather } from 'src/app/weather';
   styleUrls: ['./weather-container.component.scss'],
 })
 export class WeatherContainerComponent implements OnInit {
+
   cityName: string = '';
   cityWeather: string = '';
   cityTemp: string = '';
@@ -34,7 +35,6 @@ export class WeatherContainerComponent implements OnInit {
   currentWeather?: Weather;
   constructor(private httpClient: HttpClient) {}
 
-  
   ngOnInit(): void {
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
@@ -93,7 +93,32 @@ export class WeatherContainerComponent implements OnInit {
     }
   }
 
-  
+  loadParisName(): void {
+    this.httpClient
+      .get<Weather>('http://localhost:3000?cityName=paris')
+      .subscribe((data) => {
+        this.currentWeather = data
+        this.getUrl(data.weatherName)
+      });
+  }
+
+  loadBordeauxName(): void {
+    this.httpClient
+      .get<Weather>('http://localhost:3000?cityName=bordeaux')
+      .subscribe((data) => {
+        this.currentWeather = data
+        this.getUrl(data.weatherName)        
+      });
+  }
+
+  loadStrasbourgName(): void {
+    this.httpClient
+      .get<Weather>('http://localhost:3000?cityName=strasbourg')
+      .subscribe((data) => {
+        this.currentWeather = data
+        this.getUrl(data.weatherName)
+      });
+  }
 
   loadToulouseName(): void {
     this.httpClient
@@ -145,7 +170,6 @@ export class WeatherContainerComponent implements OnInit {
         .subscribe((data) => {
           this.currentWeather = data
           this.getUrl(data.weatherName)
-        
         });
     });
 
