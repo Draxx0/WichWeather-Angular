@@ -19,6 +19,22 @@
       <li class="city" (click)="loadQuimperName()">Quimper</li>
       <li class="city" (click)="loadChateaurouxName()">Chateauroux</li>
     </ul>
+
+    <h1 class="favorite">Favoris :</h1>
+    <ul class="favorite_list">
+      <li class="favorite_item_paris" (click)="loadParisName()">Paris</li>
+      <li class="favorite_item_bordeaux" (click)="loadBordeauxName()">Bordeaux</li>
+      <li class="favorite_item_strasbourg" (click)="loadStrasbourgName()">Strasbourg</li>
+      <li class="favorite_item_lille" (click)="loadLilleName()">Lille</li>
+      <li class="favorite_item_toulouse" (click)="loadToulouseName()">Toulouse</li>
+      <li class="favorite_item_brest" (click)="loadBrestName()">Brest</li>
+      <li class="favorite_item_montpellier" (click)="loadMontpellierName()">Montpellier</li>
+      <li class="favorite_item_dijon" (click)="loadDijonName()">Dijon</li>
+      <li class="favorite_item_annecy" (click)="loadAnnecyName()">Annecy</li>
+      <li class="favorite_item_angers" (click)="loadAngersName()">Angers</li>
+      <li class="favorite_item_quimper" (click)="loadQuimperName()">Quimper</li>
+      <li class="favorite_item_chateauroux" (click)="loadChateaurouxName()">Chateauroux</li>
+    </ul>
   </div>
   <div class="current_city">
     <img [src]="url_icon" [ngClass]="{'sun' : isSun}" alt="" class="weather_icon" />
