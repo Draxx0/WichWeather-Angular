@@ -5,39 +5,41 @@
   <img src="../../../assets/img/logo/Witch.png" alt="" class="logo" />
   <div class="city_selectionne_container">
     <ul class="city_list">
-      <li class="city" (click)="loadMaPositionsName()">Ma position</li>
-      <li class="city" (click)="loadParisName()">Paris</li>
-      <li class="city" (click)="loadBordeauxName()">Bordeaux</li>
-      <li class="city" (click)="loadStrasbourgName()">Strasbourg</li>
-      <li class="city" (click)="loadLilleName()">Lille</li>
-      <li class="city" (click)="loadToulouseName()">Toulouse</li>
-      <li class="city" (click)="loadBrestName()">Brest</li>
-      <li class="city" (click)="loadMontpellierName()">Montpellier</li>
-      <li class="city" (click)="loadDijonName()">Dijon</li>
-      <li class="city" (click)="loadAnnecyName()">Annecy</li>
-      <li class="city" (click)="loadAngersName()">Angers</li>
-      <li class="city" (click)="loadQuimperName()">Quimper</li>
-      <li class="city" (click)="loadChateaurouxName()">Chateauroux</li>
-    </ul>
-
-    <h1 class="favorite">Favoris :</h1>
-    <ul class="favorite_list">
-      <li class="favorite_item_paris" (click)="loadParisName()">Paris</li>
-      <li class="favorite_item_bordeaux" (click)="loadBordeauxName()">Bordeaux</li>
-      <li class="favorite_item_strasbourg" (click)="loadStrasbourgName()">Strasbourg</li>
-      <li class="favorite_item_lille" (click)="loadLilleName()">Lille</li>
-      <li class="favorite_item_toulouse" (click)="loadToulouseName()">Toulouse</li>
-      <li class="favorite_item_brest" (click)="loadBrestName()">Brest</li>
-      <li class="favorite_item_montpellier" (click)="loadMontpellierName()">Montpellier</li>
-      <li class="favorite_item_dijon" (click)="loadDijonName()">Dijon</li>
-      <li class="favorite_item_annecy" (click)="loadAnnecyName()">Annecy</li>
-      <li class="favorite_item_angers" (click)="loadAngersName()">Angers</li>
-      <li class="favorite_item_quimper" (click)="loadQuimperName()">Quimper</li>
-      <li class="favorite_item_chateauroux" (click)="loadChateaurouxName()">Chateauroux</li>
+      <div class="li_displaying" *ngFor="let city of cities">
+        <li class="city" (click)="loadCityData(city)">{{ city }}</li>
+        <span class="material-icons" 
+        *ngIf="!favorites.has(city)"   
+        (click)="addFavorite(city)">
+          favorite_border
+        </span>
+        <span class="material-icons"
+         (click)="deleteFavorite(city)"
+         *ngIf="favorites.has(city)" >
+          favorite
+        </span>
+      </div>
     </ul>
   </div>
+
+  <div class="favorite_container" *ngIf="favorites.size > 0">
+    <h1 class="favorite">Favoris :</h1>
+    <ul class="favorite_list">
+      <div class="li_displaying" *ngFor="let favorite of favorites">
+        <li class="favorite_item" (click)="loadCityData(favorite)">
+          {{ favorite }}
+        </li>
+        <span class="material-icons" (click)="deleteFavorite(favorite)"> heart_broken </span>
+      </div>
+    </ul>
+  </div>
+
   <div class="current_city">
-    <img [src]="url_icon" [ngClass]="{'sun' : isSun}" alt="" class="weather_icon" />
+    <img
+      [src]="url_icon"
+      [ngClass]="{ sun: isSun }"
+      alt=""
+      class="weather_icon"
+    />
     <h1 class="current_city_title">{{ currentWeather?.cityName }}</h1>
     <h2 class="current_city_weather">{{ currentWeather?.weatherName }}</h2>
     <h3 class="current_city_temp">
