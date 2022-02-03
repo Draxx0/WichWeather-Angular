@@ -15,14 +15,14 @@ export class WeatherContainerComponent implements OnInit {
   cityWeather: string = '';
   cityTemp: string = '';
 
-  url_icon = '../../../assets/img/weather-icons/bi_sunrise.png'
+  url_icon = ''
   url_img = '../../../assets/img/bg/Clouds.jpg'
 
   CloudsImg: string = "../../../assets/img/bg/Clouds.jpg"
   SnowImg: string = "../../../assets/img/bg/Snow.png"
   RainImg: string = "../../../assets/img/bg/Rain.png"
   ClearImg: string = "../../../assets/img/bg/Mountain_View_and_Beautiful_Landscape_generated.jpg"
-  MistImg: string = "../../../assets/img/bg/Fog.png"
+  FogImg: string = "../../../assets/img/bg/fog.jpg"
   DrizzleImg: string = "../../../assets/img/bg/Fog.png"
 
   CloudsIcon: string = "../../../assets/img/weather-icons/wi-cloud.svg"
@@ -75,7 +75,7 @@ export class WeatherContainerComponent implements OnInit {
       this.url_icon = this.RainIcon
       break;
 
-      case 'Mist': this.url_img = this.MistImg
+      case 'Fog': this.url_img = this.FogImg
       this.url_icon = this.MistIcon
       break;
 
