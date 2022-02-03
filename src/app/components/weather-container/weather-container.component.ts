@@ -20,15 +20,17 @@ export class WeatherContainerComponent implements OnInit {
 
   CloudsImg: string = "../../../assets/img/bg/Clouds.jpg"
   SnowImg: string = "../../../assets/img/bg/Snow.png"
-  RainImg: string = "../../../assets/img/bg/Rain.png"
-  ClearImg: string = "../../../assets/img/bg/Mountain_View_and_Beautiful_Landscape_generated.jpg"
+  RainImg: string = "../../../assets/img/bg/rain.jpg"
+  ClearImg: string = "../../../assets/img/bg/Clear.jpg"
   FogImg: string = "../../../assets/img/bg/fog.jpg"
-  DrizzleImg: string = "../../../assets/img/bg/Fog.png"
+  MistImg: string = "../../../assets/img/bg/Mist.jpg"
+  DrizzleImg: string = "../../../assets/img/bg/Drizzle.jpg"
 
   CloudsIcon: string = "../../../assets/img/weather-icons/wi-cloud.svg"
   SnowIcon: string = "../../../assets/img/weather-icons/wi-day-snow.svg"
   RainIcon: string = "../../../assets/img/weather-icons/wi-rain.svg"
   ClearIcon: string = "../../../assets/img/weather-icons/wi-day-sunny.svg"
+  FogIcon: string = "../../../assets/img/weather-icons/wi-fog.svg"
   MistIcon: string = "../../../assets/img/weather-icons/wi-fog.svg"
   DrizzleIcon: string = "../../../assets/img/weather-icons/wi-smoke.svg"
 
@@ -76,7 +78,7 @@ export class WeatherContainerComponent implements OnInit {
       break;
 
       case 'Fog': this.url_img = this.FogImg
-      this.url_icon = this.MistIcon
+      this.url_icon = this.FogIcon
       break;
 
       case 'Drizzle': this.url_img = this.DrizzleImg
@@ -85,6 +87,10 @@ export class WeatherContainerComponent implements OnInit {
 
       case 'Clouds': this.url_img = this.CloudsImg
       this.url_icon = this.CloudsIcon
+      break;
+
+      case 'Mist': this.url_img = this.MistImg
+      this.url_icon = this.MistIcon
       break;
 
       default: this.url_img = this.ClearImg
@@ -99,18 +105,6 @@ export class WeatherContainerComponent implements OnInit {
       .subscribe((data) => {
         this.currentWeather = data
         this.getUrl(data.weatherName)
-        // this.cityName = data.cityName;
-        // this.cityWeather = data.weatherName;
-        // this.getUrl(data.weatherName)
-        // this.cityTemp = data.weatherTemp;
-        // this.weatherHumidity = data.weatherHumidity;
-        // this.weatherPressure = data.weatherPressure;
-        // this.weatherWindSpeed = data.weatherWindSpeed;
-        // this.weatherTempMax = data.weatherTempMax;
-        // this.weatherTempMin = data.weatherTempMin;
-        // this.weatherSunrise = data.weatherSunrise*1000;
-        // this.weatherSunset = data.weatherSunset*1000;
-        // this.weatherFeelsLike = data.weatherFeelsLike;
       });
   }
 
@@ -120,18 +114,6 @@ export class WeatherContainerComponent implements OnInit {
       .subscribe((data) => {
         this.currentWeather = data
         this.getUrl(data.weatherName)
-        // this.cityName = data.cityName;
-        // this.cityWeather = data.weatherName;
-        // this.cityTemp = data.weatherTemp;
-        // this.weatherHumidity = data.weatherHumidity;
-        // this.weatherPressure = data.weatherPressure;
-        // this.weatherWindSpeed = data.weatherWindSpeed;
-        // this.weatherTempMax = data.weatherTempMax;
-        // this.weatherTempMin = data.weatherTempMin;
-        // this.weatherSunrise = data.weatherSunrise*1000;
-        // this.weatherSunset = data.weatherSunset*1000;
-        // this.weatherFeelsLike = data.weatherFeelsLike;
-        
       });
   }
 
@@ -141,17 +123,6 @@ export class WeatherContainerComponent implements OnInit {
       .subscribe((data) => {
         this.currentWeather = data
         this.getUrl(data.weatherName)
-        // this.cityName = data.cityName;
-        // this.cityWeather = data.weatherName;
-        // this.cityTemp = data.weatherTemp;
-        // this.weatherHumidity = data.weatherHumidity;
-        // this.weatherPressure = data.weatherPressure;
-        // this.weatherWindSpeed = data.weatherWindSpeed;
-        // this.weatherTempMax = data.weatherTempMax;
-        // this.weatherFeelsLike = data.weatherFeelsLike;
-        // this.weatherTempMin = data.weatherTempMin;
-        // this.weatherSunrise = data.weatherSunrise*1000;
-        // this.weatherSunset = data.weatherSunset*1000;
       });
   }
 
@@ -161,17 +132,6 @@ export class WeatherContainerComponent implements OnInit {
       .subscribe((data) => {
         this.currentWeather = data
         this.getUrl(data.weatherName)
-        // this.cityName = data.cityName;
-        // this.cityWeather = data.weatherName;
-        // this.cityTemp = data.weatherTemp;
-        // this.weatherHumidity = data.weatherHumidity;
-        // this.weatherPressure = data.weatherPressure;
-        // this.weatherWindSpeed = data.weatherWindSpeed;
-        // this.weatherTempMax = data.weatherTempMax;
-        // this.weatherTempMin = data.weatherTempMin;
-        // this.weatherSunrise = data.weatherSunrise*1000;
-        // this.weatherSunset = data.weatherSunset*1000;
-        // this.weatherFeelsLike = data.weatherFeelsLike;
       });
   }
 
@@ -181,17 +141,6 @@ export class WeatherContainerComponent implements OnInit {
       .subscribe((data) => {
         this.currentWeather = data
         this.getUrl(data.weatherName)
-        // this.cityName = data.cityName;
-        // this.cityWeather = data.weatherName;
-        // this.cityTemp = data.weatherTemp;
-        // this.weatherHumidity = data.weatherHumidity;
-        // this.weatherPressure = data.weatherPressure;
-        // this.weatherWindSpeed = data.weatherWindSpeed;
-        // this.weatherTempMax = data.weatherTempMax;
-        // this.weatherTempMin = data.weatherTempMin;
-        // this.weatherSunrise = data.weatherSunrise*1000;
-        // this.weatherFeelsLike = data.weatherFeelsLike;
-        // this.weatherSunset = data.weatherSunset*1000;
       });
   }
 
@@ -203,19 +152,6 @@ export class WeatherContainerComponent implements OnInit {
         this.getUrl(data.weatherName)
         console.log(this.url_img);
         console.log(data.weatherName);
-        
-        
-        // this.cityName = data.cityName;
-        // this.cityWeather = data.weatherName;
-        // this.cityTemp = data.weatherTemp;
-        // this.weatherHumidity = data.weatherHumidity;
-        // this.weatherPressure = data.weatherPressure;
-        // this.weatherWindSpeed = data.weatherWindSpeed;
-        // this.weatherFeelsLike = data.weatherFeelsLike;
-        // this.weatherTempMax = data.weatherTempMax;
-        // this.weatherTempMin = data.weatherTempMin;
-        // this.weatherSunrise = data.weatherSunrise*1000;
-        // this.weatherSunset = data.weatherSunset*1000;
       });
   }
 
@@ -226,18 +162,56 @@ export class WeatherContainerComponent implements OnInit {
         this.currentWeather = data
         this.getUrl(data.weatherName)
         console.log(this.url_img);
-        
-        // this.cityName = data.cityName;
-        // this.cityWeather = data.weatherName;
-        // this.cityTemp = data.weatherTemp;
-        // this.weatherHumidity = data.weatherHumidity;
-        // this.weatherPressure = data.weatherPressure;
-        // this.weatherWindSpeed = data.weatherWindSpeed;
-        // this.weatherFeelsLike = data.weatherFeelsLike;
-        // this.weatherTempMax = data.weatherTempMax;
-        // this.weatherTempMin = data.weatherTempMin;
-        // this.weatherSunrise = data.weatherSunrise*1000;
-        // this.weatherSunset = data.weatherSunset*1000;
+      });
+  }
+
+  loadDijonName(): void {
+    this.httpClient
+      .get<Weather>('http://localhost:3000?cityName=dijon')
+      .subscribe((data) => {
+        this.currentWeather = data
+        this.getUrl(data.weatherName)
+        console.log(this.url_img);
+      });
+  }
+
+  loadAnnecyName(): void {
+    this.httpClient
+      .get<Weather>('http://localhost:3000?cityName=annecy')
+      .subscribe((data) => {
+        this.currentWeather = data
+        this.getUrl(data.weatherName)
+        console.log(this.url_img);
+      });
+  }
+
+  loadAngersName(): void {
+    this.httpClient
+      .get<Weather>('http://localhost:3000?cityName=angers')
+      .subscribe((data) => {
+        this.currentWeather = data
+        this.getUrl(data.weatherName)
+        console.log(this.url_img);
+      });
+  }
+
+  loadQuimperName(): void {
+    this.httpClient
+      .get<Weather>('http://localhost:3000?cityName=quimper')
+      .subscribe((data) => {
+        this.currentWeather = data
+        this.getUrl(data.weatherName)
+        console.log(this.url_img);
+      });
+  }
+
+  loadChateaurouxName(): void {
+    this.httpClient
+      .get<Weather>('http://localhost:3000?cityName=chateauroux')
+      .subscribe((data) => {
+        this.currentWeather = data
+        this.getUrl(data.weatherName)
+        console.log(this.url_img);
       });
   }
 
@@ -252,20 +226,6 @@ export class WeatherContainerComponent implements OnInit {
         .subscribe((data) => {
           this.currentWeather = data
           this.getUrl(data.weatherName)
-          // console.log(data);
-          // this.cityName = data.cityName;
-          // this.cityWeather = data.weatherName;
-          // this.cityTemp = data.weatherTemp;
-          // this.weatherHumidity = data.weatherHumidity;
-          // this.weatherPressure = data.weatherPressure;
-          // this.weatherFeelsLike = data.weatherFeelsLike;
-          // this.weatherWindSpeed = data.weatherWindSpeed;
-          // this.weatherTempMax = data.weatherTempMax;
-          // this.weatherTempMin = data.weatherTempMin;
-          // this.weatherSunrise = data.weatherSunrise*1000;
-          // this.weatherSunset = data.weatherSunset*1000;
-          // console.log(this.weatherSunset);
-          
         });
     });
 
