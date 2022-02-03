@@ -29,7 +29,7 @@ export class WeatherContainerComponent implements OnInit {
   DrizzleImg: string = "../../../assets/img/bg/Drizzle.jpg"
 
   CloudsIcon: string = "../../../assets/img/weather-icons/wi-cloud.svg"
-  SnowIcon: string = "../../../assets/img/weather-icons/wi-day-snow.svg"
+  SnowIcon: string = "../../../assets/img/weather-icons/wi-snow.svg"
   RainIcon: string = "../../../assets/img/weather-icons/wi-rain.svg"
   ClearIcon: string = "../../../assets/img/weather-icons/wi-day-sunny.svg"
   FogIcon: string = "../../../assets/img/weather-icons/wi-fog.svg"
