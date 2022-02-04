@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { style } from '@angular/animations';
-import { tap } from 'rxjs';
+import { tap, timeout } from 'rxjs';
 import { Weather } from 'src/app/weather';
 import {Howl, Howler} from 'howler';
 
@@ -43,9 +43,9 @@ export class WeatherContainerComponent implements OnInit {
 
 
   sound = new Howl({
-    src: ['../../../assets/music/france-24-meteoweather-soundmusic.mp3']
+    src: ['../../../assets/music/france-24-meteoweather-soundmusic.mp3'],
   });
-
+ 
   currentWeather?: Weather;
   constructor(private httpClient: HttpClient) {
     localStorage.getItem('favorites')
@@ -54,22 +54,22 @@ export class WeatherContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sound.play();
+    Howler.volume(0.2);
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
       let long = position.coords.longitude;
       this.httpClient
         .get<Weather>(
-          `http://localhost:3000/test?lat=${lat}&lon=${long}&units=metric&appid=d916bb262d7dc0b62e3bd99b9bc40bd0`
+          `http://localhost:3000/geoloc?lat=${lat}&lon=${long}&units=metric&appid=d916bb262d7dc0b62e3bd99b9bc40bd0`
         )
         .pipe(tap(console.log))
         .subscribe((data:Weather) => {
           this.currentWeather = data
           this.getUrl(data.weatherName) 
         });
-    });
-    this.sound.play();
-    Howler.volume(0.5);
-  }
+      });
+    }
 
 
   convertTimeStamp(timeStamp:number) : Date{
@@ -140,7 +140,7 @@ export class WeatherContainerComponent implements OnInit {
       let long = position.coords.longitude;
       this.httpClient
         .get<Weather>(
-          `http://localhost:3000/test?lat=${lat}&lon=${long}&units=metric&appid=d916bb262d7dc0b62e3bd99b9bc40bd0`
+          `http://localhost:3000/geoloc?lat=${lat}&lon=${long}&units=metric&appid=d916bb262d7dc0b62e3bd99b9bc40bd0`
         )
         .subscribe((data) => {
           this.currentWeather = data

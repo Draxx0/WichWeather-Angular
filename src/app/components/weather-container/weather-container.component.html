@@ -2,22 +2,30 @@
   class="weather-container"
   [ngStyle]="{ 'background-image': 'url(' + url_img + ')' }"
 >
-  <img src="../../../assets/img/logo/Witch.png" alt="" class="logo" />
+  <div class="logo_bg">
+    <img src="../../../assets/img/logo/Witch.png" alt="" class="logo" />
+  </div>
   <div class="city_selectionne_container">
     <ul class="city_list">
       <div class="li_displaying">
-      <li class="current_position" (click)="loadMaPositionsName()"> Ma position </li>
+        <li class="current_position" (click)="loadMaPositionsName()">
+          Ma position
+        </li>
       </div>
       <div class="li_displaying" *ngFor="let city of cities">
         <li class="city" (click)="loadCityData(city)">{{ city }}</li>
-        <span class="material-icons" 
-        *ngIf="!favorites.has(city)"   
-        (click)="addFavorite(city)">
+        <span
+          class="material-icons"
+          *ngIf="!favorites.has(city)"
+          (click)="addFavorite(city)"
+        >
           favorite_border
         </span>
-        <span class="material-icons"
-         (click)="deleteFavorite(city)"
-         *ngIf="favorites.has(city)" >
+        <span
+          class="material-icons"
+          (click)="deleteFavorite(city)"
+          *ngIf="favorites.has(city)"
+        >
           favorite
         </span>
       </div>
@@ -25,15 +33,15 @@
   </div>
 
   <div class="favorite_container" *ngIf="favorites.size > 0">
-    <h1 class="favorite">Favoris :</h1>
+    <h1 class="favorite">Favorites :</h1>
     <ul class="favorite_list">
       <div class="li_displaying" *ngFor="let favorite of favorites">
-        <li class="favorite_item" 
-        (click)="loadCityData(favorite)">
+        <li class="favorite_item" (click)="loadCityData(favorite)">
           {{ favorite }}
         </li>
-        <span class="material-icons" 
-        (click)="deleteFavorite(favorite)"> heart_broken </span>
+        <span class="material-icons" (click)="deleteFavorite(favorite)">
+          heart_broken
+        </span>
       </div>
     </ul>
   </div>

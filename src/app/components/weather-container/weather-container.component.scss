@@ -103,13 +103,23 @@
     
   }
   
-
-  .logo {
-    position: absolute;
+  .logo_bg{
+    width: 15%;
+    height: 15%;
+    background-color: rgba(255, 255, 255, 20%);
+    border-radius: 30px;
+    border-bottom-left-radius: 30px;
+    position: relative;
     left: 10px;
-    top: -50px;
-    width: 300px;
-    animation: 1s drop;
+    top: 20px;
+    animation: drop 1.5s;
+
+    .logo {
+      position: absolute;
+      left: 0;
+      top: -80px;
+      width: 300px;
+    }
   }
 
   .city_selectionne_container {
