@@ -68,7 +68,8 @@
 
       .material-icons{
         color: white;
-        transition: .5s;
+        animation: fromRightSide 2s;
+        transition: all 0.2s ease;
 
         &:hover{
           transform: scale(120%);
@@ -87,6 +88,7 @@
         font-weight: bold;
         font-family: $global-fonts;
         cursor: pointer;
+        animation: fromRightSide 2s;
 
         &:hover {
           transform: scale(110%);
@@ -210,14 +212,6 @@
       text-align: center;
       margin-top: 45px;
       margin-bottom: 45px;
-
-      :nth-child(2n+0){
-        animation: fromLeftSide 1s;
-      }
-
-      :nth-child(2n+1){
-        animation: fromRightSide 1s;
-      }
       }
     }
   }

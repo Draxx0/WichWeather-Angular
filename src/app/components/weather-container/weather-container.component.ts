@@ -20,7 +20,7 @@ export class WeatherContainerComponent implements OnInit {
   cityTemp: string = '';
 
   cities = ['Paris', 'Bordeaux', 'Strasbourg', 'Lille', 'Toulouse', 'Brest', 'Montpellier', 'Dijon', 'Annecy', 'Angers', 'Quimper' ,'Chateauroux']
-  favorites: Set<string> = new Set([])
+  favorites: Set<string>;
 
   url_icon = ''
   url_img = '../../../assets/img/bg/Clouds.jpg'
@@ -41,12 +41,17 @@ export class WeatherContainerComponent implements OnInit {
   MistIcon: string = "../../../assets/img/weather-icons/wi-fog.svg"
   DrizzleIcon: string = "../../../assets/img/weather-icons/wi-showers.svg"
 
+
   sound = new Howl({
     src: ['../../../assets/music/france-24-meteoweather-soundmusic.mp3']
   });
 
   currentWeather?: Weather;
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+    localStorage.getItem('favorites')
+      ? this.favorites = new Set(JSON.parse(<string>localStorage.getItem('favorites')))
+      : this.favorites = new Set([]);
+  }
 
   ngOnInit(): void {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -64,7 +69,6 @@ export class WeatherContainerComponent implements OnInit {
     });
     this.sound.play();
     Howler.volume(0.5);
-
   }
 
 
@@ -148,10 +152,14 @@ export class WeatherContainerComponent implements OnInit {
   addFavorite(city: string){
     this.favorites.add(city) 
     console.log(this.favorites);
+    localStorage.setItem('favorites', JSON.stringify([...this.favorites]));
   }
 
   deleteFavorite(city: string){
     this.favorites.delete(city) 
     console.log(this.favorites);
+    this.favorites.size === 0
+      ? localStorage.removeItem('favorites')
+      : localStorage.setItem('favorites', JSON.stringify([...this.favorites]));
   }
 }

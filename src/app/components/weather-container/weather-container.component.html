@@ -28,10 +28,12 @@
     <h1 class="favorite">Favoris :</h1>
     <ul class="favorite_list">
       <div class="li_displaying" *ngFor="let favorite of favorites">
-        <li class="favorite_item" (click)="loadCityData(favorite)">
+        <li class="favorite_item" 
+        (click)="loadCityData(favorite)">
           {{ favorite }}
         </li>
-        <span class="material-icons" (click)="deleteFavorite(favorite)"> heart_broken </span>
+        <span class="material-icons" 
+        (click)="deleteFavorite(favorite)"> heart_broken </span>
       </div>
     </ul>
   </div>
