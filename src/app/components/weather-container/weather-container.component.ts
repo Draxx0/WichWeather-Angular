@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { style } from '@angular/animations';
 import { tap } from 'rxjs';
 import { Weather } from 'src/app/weather';
+import {Howl, Howler} from 'howler';
 
 @Component({
   selector: 'weatherComponent',
@@ -18,7 +19,7 @@ export class WeatherContainerComponent implements OnInit {
   cityWeather: string = '';
   cityTemp: string = '';
 
-  cities = ['Paris', 'Bordeaux', 'Strasbourg', 'Lille', 'Toulouse', 'Brest', 'Montpellier', 'Dijon', 'Annecy', 'Angers', 'Quimper' ,'Chateauroux']
+  cities = ['Paris', 'Bordeaux', 'Strasbourg', 'Lille', 'Toulouse', 'Brest', 'Montpellier', 'Dijon', 'Annecy', 'Angers', 'Quimper' ,'Chateauroux', 'toto']
   favorites: Set<string> = new Set([])
 
   url_icon = ''
@@ -40,6 +41,10 @@ export class WeatherContainerComponent implements OnInit {
   MistIcon: string = "../../../assets/img/weather-icons/wi-fog.svg"
   DrizzleIcon: string = "../../../assets/img/weather-icons/wi-showers.svg"
 
+  sound = new Howl({
+    src: ['../../../assets/music/france-24-meteoweather-soundmusic.mp3']
+  });
+
   currentWeather?: Weather;
   constructor(private httpClient: HttpClient) {}
 
@@ -57,6 +62,9 @@ export class WeatherContainerComponent implements OnInit {
           this.getUrl(data.weatherName) 
         });
     });
+    this.sound.play();
+    Howler.volume(0.5);
+
   }
 
 

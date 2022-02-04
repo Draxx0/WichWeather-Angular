@@ -5,6 +5,9 @@
   <img src="../../../assets/img/logo/Witch.png" alt="" class="logo" />
   <div class="city_selectionne_container">
     <ul class="city_list">
+      <div class="li_displaying">
+      <li class="current_position" (click)="loadMaPositionsName()"> Ma position </li>
+      </div>
       <div class="li_displaying" *ngFor="let city of cities">
         <li class="city" (click)="loadCityData(city)">{{ city }}</li>
         <span class="material-icons" 

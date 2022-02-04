@@ -158,6 +158,24 @@
 
       }
 
+      .current_position{
+        font-size: $city-font-size;
+        color: $font-color;
+        font-weight: bold;
+        font-family: $global-fonts;
+        cursor: pointer;
+        padding-right: 40px;
+
+        &:hover {
+          transform: scale(110%);
+          transition: 0.5s;
+        }
+
+        &:not(:hover) {
+          transition: 0.5s;
+        }
+      }
+
       .city {
         font-size: $city-font-size;
         color: $font-color;
