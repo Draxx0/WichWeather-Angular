@@ -19,7 +19,7 @@ export class WeatherContainerComponent implements OnInit {
   cityWeather: string = '';
   cityTemp: string = '';
 
-  cities = ['Paris', 'Bordeaux', 'Strasbourg', 'Lille', 'Toulouse', 'Brest', 'Montpellier', 'Dijon', 'Annecy', 'Angers', 'Quimper' ,'Chateauroux', 'toto']
+  cities = ['Paris', 'Bordeaux', 'Strasbourg', 'Lille', 'Toulouse', 'Brest', 'Montpellier', 'Dijon', 'Annecy', 'Angers', 'Quimper' ,'Chateauroux']
   favorites: Set<string> = new Set([])
 
   url_icon = ''
