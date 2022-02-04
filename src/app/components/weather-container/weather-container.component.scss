@@ -13,7 +13,9 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  font-family: Sansation;
 }
+
 .weather-container {
   width: 100vw;
   height: 100vh;
@@ -25,6 +27,79 @@
   margin: auto;
   position: relative;
   transition: 0.5s;
+
+  .favorite_container{
+    width: 30%;
+    max-height: 250px;
+    background-color: rgba(255, 255, 255, 20%);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    position: absolute;
+    right: 20px;
+    top: 420px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    animation: appear 1.5s;
+    transition: .5s;
+    animation: fromRightSide 2s;
+
+    .favorite{
+      font-size: 40px;
+      color: white;
+      text-align: center;
+    }
+
+    .favorite_list{
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      margin-top: 45px;
+      margin-bottom: 45px; 
+
+      .li_displaying{
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      .material-icons{
+        color: white;
+        transition: .5s;
+
+        &:hover{
+          transform: scale(120%);
+          transition: .5s;
+          cursor: pointer;
+        }
+
+        &:not(:hover){
+          transition: .5s;
+        }
+      }
+
+      .favorite_item {
+        font-size: $city-font-size;
+        color: $font-color;
+        font-weight: bold;
+        font-family: $global-fonts;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(110%);
+          transition: 0.5s;
+        }
+
+        &:not(:hover) {
+          transition: 0.5s;
+        }
+      }
+    }
+    
+  }
   
 
   .logo {
@@ -60,12 +135,45 @@
       margin-top: 45px;
       margin-bottom: 45px;
 
-      :nth-child(2n+0){
-        animation: fromLeftSide 1s;
+      .li_displaying{
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        animation: drop 2s;
+
+        .material-icons{
+          color: white;
+          animation: appear 2s;
+  
+          &:hover{
+            transform: scale(120%);
+            transition: .5s;
+            cursor: pointer;
+          }
+  
+          &:not(:hover){
+            transition: .5s;
+          }
+        }
+
       }
 
-      :nth-child(2n+1){
-        animation: fromRightSide 1s;
+      .current_position{
+        font-size: $city-font-size;
+        color: $font-color;
+        font-weight: bold;
+        font-family: $global-fonts;
+        cursor: pointer;
+        padding-right: 40px;
+
+        &:hover {
+          transform: scale(110%);
+          transition: 0.5s;
+        }
+
+        &:not(:hover) {
+          transition: 0.5s;
+        }
       }
 
       .city {
@@ -83,6 +191,33 @@
         &:not(:hover) {
           transition: 0.5s;
         }
+      }
+    }
+
+    .favorite{
+      color: white;
+      text-align: center;
+      font-size: 60px;
+    }
+
+    .favorite_list{
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      margin-top: 45px;
+      margin-bottom: 45px;
+
+      :nth-child(2n+0){
+        animation: fromLeftSide 1s;
+      }
+
+      :nth-child(2n+1){
+        animation: fromRightSide 1s;
+      }
       }
     }
   }
@@ -374,7 +509,7 @@
       fill: white;
     }
   }
-}
+
 
 //===================ANIM=================
 

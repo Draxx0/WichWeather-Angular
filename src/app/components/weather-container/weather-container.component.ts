@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { style } from '@angular/animations';
 import { tap } from 'rxjs';
 import { Weather } from 'src/app/weather';
+import {Howl, Howler} from 'howler';
 
 @Component({
   selector: 'weatherComponent',
@@ -12,10 +13,14 @@ import { Weather } from 'src/app/weather';
 export class WeatherContainerComponent implements OnInit {
   
   isSun: boolean = false;
+  isFavoriteContainer = false
 
   cityName: string = '';
   cityWeather: string = '';
   cityTemp: string = '';
+
+  cities = ['Paris', 'Bordeaux', 'Strasbourg', 'Lille', 'Toulouse', 'Brest', 'Montpellier', 'Dijon', 'Annecy', 'Angers', 'Quimper' ,'Chateauroux', 'toto']
+  favorites: Set<string> = new Set([])
 
   url_icon = ''
   url_img = '../../../assets/img/bg/Clouds.jpg'
@@ -36,6 +41,10 @@ export class WeatherContainerComponent implements OnInit {
   MistIcon: string = "../../../assets/img/weather-icons/wi-fog.svg"
   DrizzleIcon: string = "../../../assets/img/weather-icons/wi-showers.svg"
 
+  sound = new Howl({
+    src: ['../../../assets/music/france-24-meteoweather-soundmusic.mp3']
+  });
+
   currentWeather?: Weather;
   constructor(private httpClient: HttpClient) {}
 
@@ -53,6 +62,9 @@ export class WeatherContainerComponent implements OnInit {
           this.getUrl(data.weatherName) 
         });
     });
+    this.sound.play();
+    Howler.volume(0.5);
+
   }
 
 
@@ -109,121 +121,14 @@ export class WeatherContainerComponent implements OnInit {
     }
   }
 
-  loadParisName(): void {
-    this.httpClient
-      .get<Weather>('http://localhost:3000?cityName=paris')
-      .subscribe((data) => {
-        this.currentWeather = data
-        this.getUrl(data.weatherName)
-      });
-  }
 
-  loadBordeauxName(): void {
-    this.httpClient
-      .get<Weather>('http://localhost:3000?cityName=bordeaux')
-      .subscribe((data) => {
-        this.currentWeather = data
-        this.getUrl(data.weatherName)
-      });
-  }
-
-  loadStrasbourgName(): void {
-    this.httpClient
-      .get<Weather>('http://localhost:3000?cityName=strasbourg')
-      .subscribe((data) => {
-        this.currentWeather = data
-        this.getUrl(data.weatherName)
-      });
-  }
-
-  loadToulouseName(): void {
-    this.httpClient
-      .get<Weather>('http://localhost:3000?cityName=toulouse')
-      .subscribe((data) => {
-        this.currentWeather = data
-        this.getUrl(data.weatherName)
-      });
-  }
-
-  loadLilleName(): void {
-    this.httpClient
-      .get<Weather>('http://localhost:3000?cityName=lille')
-      .subscribe((data) => {
-        this.currentWeather = data
-        this.getUrl(data.weatherName)
-      });
-  }
-
-  loadBrestName(): void {
-    this.httpClient
-      .get<Weather>('http://localhost:3000?cityName=brest')
-      .subscribe((data) => {
-        this.currentWeather = data
-        this.getUrl(data.weatherName)
-        console.log(this.url_img);
-        console.log(data.weatherName);
-      });
-  }
-
-  loadMontpellierName(): void {
-    this.httpClient
-      .get<Weather>('http://localhost:3000?cityName=montpellier')
-      .subscribe((data) => {
-        this.currentWeather = data
-        this.getUrl(data.weatherName)
-        console.log(this.url_img);
-      });
-  }
-
-  loadDijonName(): void {
-    this.httpClient
-      .get<Weather>('http://localhost:3000?cityName=dijon')
-      .subscribe((data) => {
-        this.currentWeather = data
-        this.getUrl(data.weatherName)
-        console.log(this.url_img);
-      });
-  }
-
-  loadAnnecyName(): void {
-    this.httpClient
-      .get<Weather>('http://localhost:3000?cityName=annecy')
-      .subscribe((data) => {
-        this.currentWeather = data
-        this.getUrl(data.weatherName)
-        console.log(this.url_img);
-      });
-  }
-
-  loadAngersName(): void {
-    this.httpClient
-      .get<Weather>('http://localhost:3000?cityName=angers')
-      .subscribe((data) => {
-        this.currentWeather = data
-        this.getUrl(data.weatherName)
-        console.log(this.url_img);
-      });
-  }
-
-  loadQuimperName(): void {
-    this.httpClient
-      .get<Weather>('http://localhost:3000?cityName=quimper')
-      .subscribe((data) => {
-        this.currentWeather = data
-        this.getUrl(data.weatherName)
-        console.log(this.url_img);
-      });
-  }
-
-  loadChateaurouxName(): void {
-    this.httpClient
-      .get<Weather>('http://localhost:3000?cityName=chateauroux')
-      .subscribe((data) => {
-        this.currentWeather = data
-        this.getUrl(data.weatherName)
-        console.log(this.url_img);
-      });
-  }
+  loadCityData(city: string) {
+    this.httpClient.get<Weather>(`http://localhost:3000?cityName=${city}`)
+    .subscribe((data) => {
+      this.currentWeather = data
+      this.getUrl(data.weatherName)
+  })}
+  
 
   loadMaPositionsName(): void {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -238,7 +143,15 @@ export class WeatherContainerComponent implements OnInit {
           this.getUrl(data.weatherName)
         });
     });
+  }
 
+  addFavorite(city: string){
+    this.favorites.add(city) 
+    console.log(this.favorites);
+  }
 
+  deleteFavorite(city: string){
+    this.favorites.delete(city) 
+    console.log(this.favorites);
   }
 }
