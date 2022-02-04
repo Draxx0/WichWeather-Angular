@@ -2,15 +2,15 @@
   class="weather-container"
   [ngStyle]="{ 'background-image': 'url(' + url_img + ')' }"
 >
-  <div class="logo_bg">
-    <img src="../../../assets/img/logo/Witch.png" alt="" class="logo" />
-  </div>
-  <div class="city_selectionne_container">
-    <ul class="city_list">
-      <div class="li_displaying">
-        <li class="current_position" (click)="loadMaPositionsName()">
-          Ma position
-        </li>
+<div class="logo_bg">
+  <img src="../../../assets/img/logo/Witch.png" alt="" class="logo" />
+</div>
+<div class="city_selectionne_container">
+  <ul class="city_list">
+    <div class="li_displaying">
+      <li class="current_position" (click)="loadMaPositionsName()">
+        Ma position
+      </li>
       </div>
       <div class="li_displaying" *ngFor="let city of cities">
         <li class="city" (click)="loadCityData(city)">{{ city }}</li>
@@ -45,7 +45,6 @@
       </div>
     </ul>
   </div>
-
   <div class="current_city">
     <img
       [src]="url_icon"

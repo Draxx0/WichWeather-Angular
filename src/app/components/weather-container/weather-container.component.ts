@@ -71,7 +71,6 @@ export class WeatherContainerComponent implements OnInit {
       });
     }
 
-
   convertTimeStamp(timeStamp:number) : Date{
     return new Date (timeStamp*1000);
   }
